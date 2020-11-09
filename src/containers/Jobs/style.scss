@@ -1,0 +1,25 @@
+$main-color: #3080FF;
+$second-color: #312F2F;
+$third-color: #FEFFFE;
+$main-color-dark: #1331;
+
+.jobs {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .hero {
+    height: 400px;
+    background-image: url('https://images.pexels.com/photos/5336167/pexels-photo-5336167.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    > h1 {
+      text-align: center;
+      color: $third-color;
+      margin: 58px 0;
+      font-size: 68px;
+      background-color: $main-color;
+    }
+  }
+}
