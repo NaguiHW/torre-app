@@ -13,7 +13,9 @@ const Home = () => (
         <h1>
           Are you a <span>professional</span> or a <span>freelancer</span> looking for a job opportunity?
           <br />
-          You are in the right place. Start looking <span>now</span>.
+          You are in the right place.
+          <br />
+          Start looking <span>now</span>.
         </h1>
         <button type="button">Search Opportunities</button>
       </div>
@@ -22,7 +24,9 @@ const Home = () => (
       <h1>
         Are you looking for a <span>qualified professional</span>? Or a <span>freelancer</span>?
         <br />
-        You are in the right place. Start looking <span>now</span>.
+        You are in the right place.
+        <br />
+        Start looking <span>now</span>.
       </h1>
       <button type="button">Search Professionals</button>
     </div>

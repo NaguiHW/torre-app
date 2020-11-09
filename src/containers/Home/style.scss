@@ -1,0 +1,105 @@
+$main-color: #3080FF;
+$second-color: #312F2F;
+$third-color: #FEFFFE;
+$main-color-dark: #13315C;
+
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .hero1 {
+    height: 700px;
+    background-image: url('https://s-i.huffpost.com/gen/1368538/images/o-PROFESSIONAL-BUSINESS-WOMAN-facebook.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      > h1 {
+        padding: 25px;
+        color: $second-color;
+
+        span {
+          color: $main-color;
+        }
+      }
+
+    }
+    
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 15px;
+      
+      > h1 {
+        width: 610px;
+        text-align: right;
+        font-weight: normal;
+
+        span {
+          color: $main-color;
+          font-weight: bold;
+        }
+      }
+
+      > button {
+        background-color: $main-color;
+        color: $third-color;
+        border: none;
+        font-size: 24px;
+        padding: 10px 25px;
+        border-radius: 25px;
+        margin: 15px 0;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+          background-color: $main-color-dark;
+        }
+      }
+    }
+  }
+
+  .hero2 {
+    height: 700px;
+    background-image: url('https://www.mhphotographyhampshire.co.uk/wp-content/uploads/2018/02/9684-2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    > h1 {
+      width: 610px;
+      font-weight: normal;
+      padding: 15px;
+
+      span {
+        color: $main-color;
+        font-weight: bold;
+      }
+    }
+
+    > button {
+      background-color: $main-color;
+      color: $third-color;
+      border: none;
+      font-size: 24px;
+      padding: 10px 25px;
+      border-radius: 25px;
+      margin: 15px 0;
+      cursor: pointer;
+      font-weight: bold;
+      width: 350px;
+
+      &:hover {
+        background-color: $main-color-dark;
+      }
+    }
+  }
+}
