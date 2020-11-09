@@ -1,14 +1,12 @@
 import React from 'react';
+import Navbar from '../../components/Navbar';
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 const Home = () => (
   <div className="home">
     <div className="hero1">
-      <div className="logo">
-        <h1>
-          <span>T</span>orre<span>S</span>earch
-        </h1>
-      </div>
+      <Navbar />
       <div className="content">
         <h1>
           Are you a <span>professional</span> or a <span>freelancer</span> looking for a job opportunity?
@@ -17,7 +15,9 @@ const Home = () => (
           <br />
           Start looking <span>now</span>.
         </h1>
-        <button type="button">Search Opportunities</button>
+        <Link to="/jobs" className="button">
+          Search Opportunities
+        </Link>
       </div>
     </div>
     <div className="hero2">
@@ -28,7 +28,9 @@ const Home = () => (
         <br />
         Start looking <span>now</span>.
       </h1>
-      <button type="button">Search Professionals</button>
+      <Link to="/professionals" className="button">
+        Search Professionals
+      </Link>
     </div>
   </div>
 );
