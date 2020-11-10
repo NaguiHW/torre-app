@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Member from '../../components/Member';
 import Navbar from '../../components/Navbar';
 import './style.scss';
 
@@ -113,7 +114,15 @@ const JobDetails = () => {
         </ul>
       </div>
       <div className="members">
-        
+        {
+          state.opportunity.members.map(member => (
+            <Member
+              imgSrc={member.person.picture}
+              name={member.person.name}
+              professionalHeadline={member.person.professionalHeadline}
+            />
+          ))
+        }
       </div>
     </div>
   );

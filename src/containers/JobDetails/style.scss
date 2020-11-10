@@ -39,4 +39,11 @@ $main-color-dark: #13315C;
       font-size: 36px;
     }
   }
+
+  .members {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 15px 0;
+  }
 }

@@ -1,0 +1,42 @@
+$main-color: #3080FF;
+$second-color: #312F2F;
+$third-color: #FEFFFE;
+$main-color-dark: #1331;
+
+.member {
+  width: 23%;
+  margin-bottom: 15px;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-sizing: border-box;
+  transition: border 0.2s, transform 0.2s;
+  cursor: pointer;
+
+  .image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .info {
+    > h1 {
+      font-size: 24px;
+    }
+
+    h1, p {
+      padding: 0 5px;
+    }
+  }
+
+  &:hover {
+    border: 1px solid $main-color;
+    box-sizing: border-box;
+    border-radius: 10px;
+    transform: scale(1.02, 1.02);
+  }
+}
