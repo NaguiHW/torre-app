@@ -55,6 +55,13 @@ const Jobs = () => {
       });
     }
   }
+  
+  const updateSize = e => {
+    setState({
+      ...state,
+      size: Number(e.target.innerHTML),
+    })
+  }
 
   useEffect(() => {
     const req = async () => {
@@ -89,10 +96,11 @@ const Jobs = () => {
         <Navbar />
         <h1>Job Opportunity</h1>
       </div>
-      <div className="drop-down">
-        <button type="button">20</button>
-        <button type="button">60</button>
-        <button type="button">100</button>
+      <div className="jobs-per-page">
+        <p>Jobs per page:</p>
+        <button type="button" className={state.size === 20 ? 'button-selected' : 'button'} onClick={updateSize}>20</button>
+        <button type="button" className={state.size === 60 ? 'button-selected' : 'button'} onClick={updateSize}>60</button>
+        <button type="button" className={state.size === 100 ? 'button-selected' : 'button'} onClick={updateSize}>100</button>
       </div>
       <div className="jobs-container">
         {

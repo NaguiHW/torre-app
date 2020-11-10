@@ -1,7 +1,7 @@
 $main-color: #3080FF;
 $second-color: #312F2F;
 $third-color: #FEFFFE;
-$main-color-dark: #1331;
+$main-color-dark: #13315C;
 
 .jobs {
   max-width: 1200px;
@@ -22,6 +22,42 @@ $main-color-dark: #1331;
       background-color: $main-color;
     }
   }
+
+.jobs-per-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-size: 20px;
+  }
+
+  .button {
+    font-size: 20px;
+    border: none;
+    padding: 5px 15px;
+    margin: 10px 5px;
+    background-color: $main-color;
+    color: $third-color;
+    transition: background-color 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $main-color-dark;
+    }
+  }
+
+  .button-selected {
+    font-size: 20px;
+    border: none;
+    padding: 5px 15px;
+    margin: 10px 5px;
+    background-color: $main-color-dark;
+    color: $third-color;
+    transition: background-color 0.2s;
+    cursor: pointer;
+  }
+}
 
   .jobs-container {
     display: flex;
