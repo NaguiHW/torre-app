@@ -1,0 +1,42 @@
+$main-color: #3080FF;
+$main-color-alpha: #307fffa6;
+$second-color: #312F2F;
+$third-color: #FEFFFE;
+$main-color-dark: #13315C;
+
+.job-details {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .hero {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  
+    > h1 {
+      text-align: center;
+      color: $third-color;
+      margin: 50px 0;
+      font-size: 68px;
+      background-color: $main-color-alpha;
+    }
+  }
+
+  .organization-info {
+    h3 {
+      text-transform: capitalize;
+    }
+  }
+
+  .job-info {
+    background-color: $second-color;
+    color: $third-color;
+    padding: 0 10px;
+    margin-bottom: 25px;
+
+    h3 {
+      font-size: 36px;
+    }
+  }
+}

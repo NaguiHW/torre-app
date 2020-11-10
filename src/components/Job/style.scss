@@ -3,69 +3,72 @@ $second-color: #312F2F;
 $third-color: #FEFFFE;
 $main-color-dark: #1331;
 
-.job {
+a {
   width: 23%;
-  margin-bottom: 15px;
-  border: 1px solid white;
-  border-radius: 10px;
-  box-sizing: border-box;
-  transition: border 0.2s, transform 0.2s;
-  cursor: pointer;
-
-  .title {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px 10px 0 0;
-  }
-
-  .info {
-    h2, p, h3 {
-      margin: 0 5px;
-    }
-
-    > h1 {
-      font-size: 20px;
-      width: 100%;
-      padding: 10px 0;
-      text-align: center;
-      background-color: $second-color;
-      color: $third-color;
-    }
-
-    .organization-name {
-      line-height: 24px;
-      padding: 10px 0;
-    }
-
-    > h3 {
-      font-weight: normal;
-    }
-
-    .skills-container {
+  color: black;
+  .job {
+    margin-bottom: 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: border 0.2s, transform 0.2s;
+    cursor: pointer;
+  
+    .title {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 180px;
       display: flex;
-      flex-wrap: wrap;
-
-      > h5 {
-        font-weight: normal;
-        font-size: 12px;
-        background-color: $main-color;
-        padding: 5px 8px;
-        margin: 4px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px 10px 0 0;
+    }
+  
+    .info {
+      h2, p, h3 {
+        margin: 0 5px;
+      }
+  
+      > h1 {
+        font-size: 20px;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        background-color: $second-color;
         color: $third-color;
-        border-radius: 12px;
+      }
+  
+      .organization-name {
+        line-height: 24px;
+        padding: 10px 0;
+      }
+  
+      > h3 {
+        font-weight: normal;
+      }
+  
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+  
+        > h5 {
+          font-weight: normal;
+          font-size: 12px;
+          background-color: $main-color;
+          padding: 5px 8px;
+          margin: 4px;
+          color: $third-color;
+          border-radius: 12px;
+        }
       }
     }
-  }
-
-  &:hover {
-    border: 1px solid $main-color;
-    box-sizing: border-box;
-    border-radius: 10px;
-    transform: scale(1.02, 1.02);
+  
+    &:hover {
+      border: 1px solid $main-color;
+      box-sizing: border-box;
+      border-radius: 10px;
+      transform: scale(1.02, 1.02);
+    }
   }
 }

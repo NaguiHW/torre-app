@@ -114,6 +114,7 @@ const Jobs = () => {
               type={job.type}
               deadline={job.deadline}
               compensation={job.compensation}
+              id={job.id}
             />
           ))
         }
