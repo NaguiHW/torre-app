@@ -1,0 +1,39 @@
+$main-color: #3080FF;
+$second-color: #312F2F;
+$third-color: #FEFFFE;
+$main-color-dark: #13315C;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+
+  .logo {
+    > h1 {
+      color: $second-color;
+      font-size: 34px;
+
+      span {
+        color: $main-color;
+      }
+    }
+  }
+
+  .links {
+    .button {
+      margin-left: 15px;
+      background-color: $main-color;
+      color: $third-color;
+      border: none;
+      font-size: 16px;
+      padding: 6px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $main-color-dark;
+      }
+    }
+  }
+}

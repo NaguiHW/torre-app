@@ -13,20 +13,6 @@ $main-color-dark: #13315C;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    display: flex;
-    justify-content: space-between;
-
-    .logo {
-      > h1 {
-        padding: 25px;
-        color: $second-color;
-
-        span {
-          color: $main-color;
-        }
-      }
-
-    }
     
     .content {
       display: flex;
@@ -34,6 +20,7 @@ $main-color-dark: #13315C;
       align-items: flex-end;
       justify-content: center;
       padding: 15px;
+      height: 80%;
       
       > h1 {
         width: 610px;
@@ -46,7 +33,7 @@ $main-color-dark: #13315C;
         }
       }
 
-      > button {
+      .button {
         background-color: $main-color;
         color: $third-color;
         border: none;
@@ -85,7 +72,7 @@ $main-color-dark: #13315C;
       }
     }
 
-    > button {
+    .button {
       background-color: $main-color;
       color: $third-color;
       border: none;
@@ -95,7 +82,8 @@ $main-color-dark: #13315C;
       margin: 15px 0;
       cursor: pointer;
       font-weight: bold;
-      width: 350px;
+      text-align: center;
+      width: 270px;
 
       &:hover {
         background-color: $main-color-dark;
