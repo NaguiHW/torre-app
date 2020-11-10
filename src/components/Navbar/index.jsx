@@ -4,11 +4,13 @@ import './style.scss'
 
 const Navbar = () => (
   <nav className="navbar">
-    <div className="logo">
-      <h1>
-        <span>T</span>orre<span>S</span>earch
-      </h1>
-    </div>
+    <Link to="/">
+      <div className="logo">
+        <h1>
+          <span>T</span>orre<span>S</span>earch
+        </h1>
+      </div>
+    </Link>
     <div className="links">
       <Link to="/jobs" className="button">
         Opportunities

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from '../Home';
 import JobDetails from '../JobDetails';
 import Jobs from '../Jobs';
+import Professionals from '../Professionals';
 
 const App = () => (
   <Router>
@@ -12,6 +13,9 @@ const App = () => (
       </Route>
       <Route exact path='/'>
         <Home />
+      </Route>
+      <Route exact path='/professionals'>
+        <Professionals />
       </Route>
       <Route exact path='/jobs'>
         <Jobs />
