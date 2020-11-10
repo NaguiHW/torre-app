@@ -29,4 +29,32 @@ $main-color-dark: #1331;
     flex-wrap: wrap;
     margin: 15px 0;
   }
+
+  .pages {
+    display: flex;
+    margin: 0 auto 25px;
+    justify-content: center;
+    margin: 25px 0;
+
+    span, p {
+      font-size: 24px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.2s, color 0.2s;
+
+      &:hover {
+        background-color: $main-color;
+        color: $third-color;
+      }
+    }
+
+    span {
+      padding: 5px 15px;
+      margin: 0 10px;
+    }
+
+    p {
+      padding: 5px 10px;
+    }
+  }
 }
