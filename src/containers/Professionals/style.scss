@@ -3,13 +3,13 @@ $second-color: #312F2F;
 $third-color: #FEFFFE;
 $main-color-dark: #13315C;
 
-.jobs {
+.professionals {
   max-width: 1200px;
   margin: 0 auto;
 
   .hero {
     height: 400px;
-    background-image: url('https://images.pexels.com/photos/5336167/pexels-photo-5336167.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+    background-image: url('https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -23,15 +23,15 @@ $main-color-dark: #13315C;
     }
   }
 
-  .jobs-per-page {
+  .professionals-per-page {
     display: flex;
     justify-content: center;
     align-items: center;
-
+  
     p {
       font-size: 20px;
     }
-
+  
     .button {
       font-size: 20px;
       border: none;
@@ -41,12 +41,12 @@ $main-color-dark: #13315C;
       color: $third-color;
       transition: background-color 0.2s;
       cursor: pointer;
-
+  
       &:hover {
         background-color: $main-color-dark;
       }
     }
-
+  
     .button-selected {
       font-size: 20px;
       border: none;
@@ -59,7 +59,7 @@ $main-color-dark: #13315C;
     }
   }
 
-  .jobs-container {
+  .professionals-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;

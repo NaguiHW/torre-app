@@ -1,0 +1,48 @@
+$main-color: #3080FF;
+$main-color-alpha: #307fffa6;
+$second-color: #312F2F;
+$third-color: #FEFFFE;
+$main-color-dark: #13315C;
+
+.professional-details {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .hero {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  
+    > h1 {
+      text-align: center;
+      color: $third-color;
+      margin: 50px 0;
+      font-size: 68px;
+      background-color: $main-color-alpha;
+    }
+  }
+
+  .professional-info {
+    .strengths-container {
+      background-color: $second-color;
+      padding: 10px;
+
+      p {
+        color: $third-color;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      span {
+        background-color: $main-color;
+        color: $third-color;
+        margin: 5px 5px;
+        line-height: 40px;
+        font-size: 16px;
+        padding: 5px 10px;
+        border-radius: 18px;
+      }
+    }
+  }
+}
