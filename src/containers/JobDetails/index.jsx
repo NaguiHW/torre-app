@@ -9,6 +9,8 @@ const JobDetails = () => {
   const [state, setState] = useState({
     opportunity: [],
   })
+  const [benefits, setBenefits] = useState([]);
+  const [stockCompensations, setStockCcompensations] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -18,7 +20,7 @@ const JobDetails = () => {
       setState({
         ...state,
         opportunity: {
-          organization: response.data.organizations,
+          organization: response.data.organizations[0],
           title: response.data.objective,
           details: response.data.details,
           image: response.data.attachments[0]?.address,
@@ -31,7 +33,9 @@ const JobDetails = () => {
           strengths: response.data.strengths,
           timezones: response.data.timezones,
         }
-      })
+      });
+      setBenefits(response.data.details.filter(detail => detail.code === 'benefits'));
+      setStockCcompensations(response.data.details.filter(detail => detail.code === 'stock-compensations'));
     }
       getOpportunity();
   }, [])
@@ -43,9 +47,49 @@ const JobDetails = () => {
         <h1>{state.opportunity.title}</h1>
       </div>
       <div className="organization-info">
-        <h1>{state.opportunity.organization[0]?.name}</h1>
+        <h1>{state.opportunity.organization?.name}</h1>
+        {
+          benefits.length > 0
+            && (
+              <>
+                <h3>benefits</h3>
+                {
+                  <>
+                    <ul>
+                      {
+                        benefits?.map(benefit => (
+                          <li>{benefit.content}</li>
+                        ))
+                      }
+                    </ul>
+                    <br />
+                  </>
+                }
+              </>
+            )
+        }
+        {
+          stockCompensations.length > 0 && (
+            <>
+              <h3>stock compensations</h3>
+              {
+                <>
+                  <ul>
+                    {
+                      stockCompensations?.map(compensation => (
+                        <li>{compensation.content}</li>
+                      ))
+                    }
+                  </ul>
+                  <br />
+                </>
+              }
+            </>
+          )
+        }
         {
           state.opportunity.details.map(detail => (
+            (detail.code !== 'benefits' && detail.code !== 'stock-compensations') &&
             <>
               <h3>{detail.code}</h3>
               {
