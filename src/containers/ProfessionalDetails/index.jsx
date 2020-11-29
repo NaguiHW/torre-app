@@ -1,7 +1,6 @@
-import axios from 'axios';
-import React from 'react';
+import axios from '../../axios';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { useEffect, useState } from 'react/cjs/react.development';
 import Navbar from '../../components/Navbar';
 import './style.scss';
 
@@ -12,22 +11,25 @@ const ProfessionalDetails = () => {
 
   useEffect(() => {
     const getProfessional = async () => {
-      const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://bio.torre.co/api/bios/${username}`)
-      console.log(response);
+      const response = await axios({
+        method: 'get',
+        url: `/bios/${username}`,
+      });
+
       setProfessional({
-        person: response.data.person,
-        education: response.data.education,
-        jobs: response.data.jobs,
-        languages: response.data.languages,
-        strengths: response.data.strengths,
+        person: response.data.data.person,
+        education: response.data.data.education,
+        jobs: response.data.data.jobs,
+        languages: response.data.data.languages,
+        strengths: response.data.data.strengths,
       })
     }
     getProfessional();
-  },[])
+  }, [])
 
   return professional.length === 0 ? <h1>Loading</h1> : (
     <div className="professional-details">
-      <div className="hero" style={{backgroundImage: `url(${professional.person.picture})`}}>
+      <div className="hero" style={{ backgroundImage: `url(${professional.person.picture})` }}>
         <Navbar />
         <h1>{professional.person.name}</h1>
       </div>

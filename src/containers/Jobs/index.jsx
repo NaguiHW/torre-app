@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../axios';
 import React, { useEffect, useState } from 'react';
 import Job from '../../components/Job';
 import Navbar from '../../components/Navbar';
@@ -14,21 +14,21 @@ const Jobs = () => {
 
   const pages = () => {
     const { actualPage, size, total } = state;
-    const lastPage = total%size === 0 ? total/size : Math.ceil(total/size);
+    const lastPage = total % size === 0 ? total / size : Math.ceil(total / size);
     const menuLength = 7;
-    
+
     if (actualPage < 5) {
       return lastPage < menuLength
-        ? Array.from({length: lastPage}, (x, i) => i + 1)
-        : Array.from({length: menuLength}, (x, i) => i + 1)
+        ? Array.from({ length: lastPage }, (x, i) => i + 1)
+        : Array.from({ length: menuLength }, (x, i) => i + 1)
     }
     if (actualPage > lastPage - 4) {
       return lastPage < menuLength
-        ? Array.from({length: lastPage}, (x, i) => i + 1)
-        : Array.from({length: menuLength}, (x, i) => lastPage - 6 + i)
+        ? Array.from({ length: lastPage }, (x, i) => i + 1)
+        : Array.from({ length: menuLength }, (x, i) => lastPage - 6 + i)
     }
     if (actualPage > 4 && actualPage < lastPage - 3) {
-      return Array.from({length: menuLength}, (x, i) => actualPage - 3 + i)
+      return Array.from({ length: menuLength }, (x, i) => actualPage - 3 + i)
     }
   }
 
@@ -41,7 +41,7 @@ const Jobs = () => {
 
   const goTo = e => {
     const { size, total } = state;
-    const lastPage = total%size === 0 ? total/size : Math.ceil(total/size);
+    const lastPage = total % size === 0 ? total / size : Math.ceil(total / size);
     if (e.target.innerHTML === 'First') {
       setState({
         ...state,
@@ -55,7 +55,7 @@ const Jobs = () => {
       });
     }
   }
-  
+
   const updateSize = e => {
     setState({
       ...state,
@@ -68,10 +68,14 @@ const Jobs = () => {
       const { actualPage, size } = state;
       const offset = (actualPage - 1) * size
 
-      const response = await axios.post(`https://search.torre.co/opportunities/_search/?size=${size}&offset=${offset}`);
+      const response = await axios({
+        method: 'post',
+        url: `/opportunities/search?size=${size}&offset=${offset}`,
+      });
+
       setState({
         ...state,
-        jobs: response.data.results.map(job => ({
+        jobs: response.data.data.map(job => ({
           id: job.id,
           title: job.objective,
           organization: job.organizations,
