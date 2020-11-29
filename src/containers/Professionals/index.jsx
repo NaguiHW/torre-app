@@ -1,6 +1,5 @@
 import axios from '../../axios';
-import React from 'react';
-import { useEffect, useState } from 'react/cjs/react.development';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Professional from '../../components/Professional';
 import './style.scss';
@@ -73,7 +72,6 @@ const Professionals = () => {
         method: 'post',
         url: `/people/search?size=${size}&offset=${offset}`,
       });
-      console.log(response);
 
       setState({
         ...state,
