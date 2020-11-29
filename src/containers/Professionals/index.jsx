@@ -73,6 +73,7 @@ const Professionals = () => {
         method: 'post',
         url: `/people/search?size=${size}&offset=${offset}`,
       });
+      console.log(response);
 
       setState({
         ...state,

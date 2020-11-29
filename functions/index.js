@@ -28,6 +28,7 @@ app.post('/people/search', async (request, response) => {
 
     response.status(200).send({
       data: data.results,
+      total: data.total,
     });
   } catch (error) {
     response.status(400).send({
@@ -49,6 +50,7 @@ app.post('/opportunities/search', async (request, response) => {
 
     response.status(200).send({
       data: data.results,
+      total: data.total,
     });
   } catch (error) {
     response.status(400).send({
