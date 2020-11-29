@@ -15,17 +15,47 @@ app.use(express.json());
 // API Routes
 app.get('/', (request, response) => response.status(200).send('Hello World'));
 
-app.post('/people', async (request, response) => {
+app.post('/people/search', async (request, response) => {
   const size = request.query.size;
   const offset = request.query.offset;
 
-  const res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
-    method: 'POST',
-  });
+  try {
+    const res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
+      method: 'POST',
+    });
 
-  console.log(size, offset);
-  console.log(res);
-})
+    const data = await res.json();
+
+    response.status(200).send({
+      data: data.results,
+    });
+  } catch (error) {
+    response.status(400).send({
+      error,
+    })
+  }
+});
+
+app.post('/opportunities/search', async (request, response) => {
+  const size = request.query.size;
+  const offset = request.query.offset;
+
+  try {
+    const res = await fetch(`https://search.torre.co/opportunities/_search/?size=${size}&offset=${offset}`, {
+      method: 'POST',
+    });
+
+    const data = await res.json();
+
+    response.status(200).send({
+      data: data.results,
+    });
+  } catch (error) {
+    response.status(400).send({
+      error,
+    });
+  }
+});
 
 // Listen Command
 exports.api = functions.https.onRequest(app);

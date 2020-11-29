@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../axios';
 import React from 'react';
 import { useEffect, useState } from 'react/cjs/react.development';
 import Navbar from '../../components/Navbar';
@@ -15,21 +15,21 @@ const Professionals = () => {
 
   const pages = () => {
     const { actualPage, size, total } = state;
-    const lastPage = total%size === 0 ? total/size : Math.ceil(total/size);
+    const lastPage = total % size === 0 ? total / size : Math.ceil(total / size);
     const menuLength = 7;
-    
+
     if (actualPage < 5) {
       return lastPage < menuLength
-        ? Array.from({length: lastPage}, (x, i) => i + 1)
-        : Array.from({length: menuLength}, (x, i) => i + 1)
+        ? Array.from({ length: lastPage }, (x, i) => i + 1)
+        : Array.from({ length: menuLength }, (x, i) => i + 1)
     }
     if (actualPage > lastPage - 4) {
       return lastPage < menuLength
-        ? Array.from({length: lastPage}, (x, i) => i + 1)
-        : Array.from({length: menuLength}, (x, i) => lastPage - 6 + i)
+        ? Array.from({ length: lastPage }, (x, i) => i + 1)
+        : Array.from({ length: menuLength }, (x, i) => lastPage - 6 + i)
     }
     if (actualPage > 4 && actualPage < lastPage - 3) {
-      return Array.from({length: menuLength}, (x, i) => actualPage - 3 + i)
+      return Array.from({ length: menuLength }, (x, i) => actualPage - 3 + i)
     }
   }
 
@@ -49,7 +49,7 @@ const Professionals = () => {
 
   const goTo = e => {
     const { size, total } = state;
-    const lastPage = total%size === 0 ? total/size : Math.ceil(total/size);
+    const lastPage = total % size === 0 ? total / size : Math.ceil(total / size);
     if (e.target.innerHTML === 'First') {
       setState({
         ...state,
@@ -69,11 +69,14 @@ const Professionals = () => {
       const { actualPage, size } = state;
       const offset = (actualPage - 1) * size
 
-      const response = await axios.post(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`);
-      console.log(response.data);
+      const response = await axios({
+        method: 'post',
+        url: `/people/search?size=${size}&offset=${offset}`,
+      });
+
       setState({
         ...state,
-        professionals: response.data.results.map(professional => ({
+        professionals: response.data.data.map(professional => ({
           username: professional.username,
           location: professional.locationName,
           name: professional.name,
@@ -89,7 +92,7 @@ const Professionals = () => {
     req();
     window.scrollTo(0, 0)
   }, [state.size, state.actualPage])
-  
+
   return state.professionals.length === 0 ? <h1>Loading</h1> : (
     <div className="professionals">
       <div className="hero">
