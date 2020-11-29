@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Member from '../../components/Member';
@@ -15,34 +15,37 @@ const JobDetails = () => {
 
   useEffect(() => {
     const getOpportunity = async () => {
-      const response = await axios.get(`https://torre.co/api/opportunities/${id}`)
-      console.log(response.data);
+      const response = await axios({
+        method: 'get',
+        url: `/opportunity/${id}`,
+      });
+
       setState({
         ...state,
         opportunity: {
-          organization: response.data.organizations[0],
-          title: response.data.objective,
-          details: response.data.details,
-          image: response.data.attachments[0]?.address,
-          type: response.data.commitment.code,
-          compensation: response.data.compensation,
-          deadline: response.data.deadline,
-          languages: response.data.languages,
-          members: response.data.members,
-          place: response.data.place,
-          strengths: response.data.strengths,
-          timezones: response.data.timezones,
+          organization: response.data.data.organizations[0],
+          title: response.data.data.objective,
+          details: response.data.data.details,
+          image: response.data.data.attachments[0]?.address,
+          type: response.data.data.commitment.code,
+          compensation: response.data.data.compensation,
+          deadline: response.data.data.deadline,
+          languages: response.data.data.languages,
+          members: response.data.data.members,
+          place: response.data.data.place,
+          strengths: response.data.data.strengths,
+          timezones: response.data.data.timezones,
         }
       });
-      setBenefits(response.data.details.filter(detail => detail.code === 'benefits'));
-      setStockCcompensations(response.data.details.filter(detail => detail.code === 'stock-compensations'));
+      setBenefits(response.data.data.details.filter(detail => detail.code === 'benefits'));
+      setStockCcompensations(response.data.data.details.filter(detail => detail.code === 'stock-compensations'));
     }
-      getOpportunity();
+    getOpportunity();
   }, [])
 
   return state.opportunity.length === 0 ? <h1>Loading</h1> : (
     <div className="job-details">
-      <div className="hero" style={{backgroundImage: `url(${state.opportunity?.image})`}}>
+      <div className="hero" style={{ backgroundImage: `url(${state.opportunity?.image})` }}>
         <Navbar />
         <h1>{state.opportunity.title}</h1>
       </div>
@@ -50,23 +53,23 @@ const JobDetails = () => {
         <h1>{state.opportunity.organization?.name}</h1>
         {
           benefits.length > 0
-            && (
-              <>
-                <h3>benefits</h3>
-                {
-                  <>
-                    <ul>
-                      {
-                        benefits?.map(benefit => (
-                          <li>{benefit.content}</li>
-                        ))
-                      }
-                    </ul>
-                    <br />
-                  </>
-                }
-              </>
-            )
+          && (
+            <>
+              <h3>benefits</h3>
+              {
+                <>
+                  <ul>
+                    {
+                      benefits?.map(benefit => (
+                        <li>{benefit.content}</li>
+                      ))
+                    }
+                  </ul>
+                  <br />
+                </>
+              }
+            </>
+          )
         }
         {
           stockCompensations.length > 0 && (
@@ -93,7 +96,7 @@ const JobDetails = () => {
             <>
               <h3>{detail.code}</h3>
               {
-                detail.content.split('\n').map(value=> (
+                detail.content.split('\n').map(value => (
                   <span>{value}<br /></span>
                 ))
               }

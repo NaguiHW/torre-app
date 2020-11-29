@@ -57,5 +57,45 @@ app.post('/opportunities/search', async (request, response) => {
   }
 });
 
+app.get('/opportunity/:id', async (request, response) => {
+  const id = request.params.id;
+
+  try {
+    const res = await fetch(`https://torre.co/api/opportunities/${id}`, {
+      method: 'GET',
+    });
+
+    const data = await res.json();
+
+    response.status(200).send({
+      data,
+    });
+  } catch (error) {
+    response.status(400).send({
+      error,
+    });
+  }
+});
+
+app.get('/bios/:username', async (request, response) => {
+  const username = request.params.username;
+
+  try {
+    const res = await fetch(`https://torre.bio/api/bios/${username}`, {
+      method: 'GET',
+    });
+
+    const data = await res.json();
+
+    response.status(200).send({
+      data,
+    });
+  } catch (error) {
+    response.status(400).send({
+      error,
+    });
+  }
+});
+
 // Listen Command
 exports.api = functions.https.onRequest(app);
