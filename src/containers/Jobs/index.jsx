@@ -12,7 +12,10 @@ const Jobs = () => {
     total: 0,
   });
   const [formData, setFormData] = useState({});
-  const [showAdvanceSearch, setShowAdvanceSearch] = useState("none");
+  const [show, setShow] = useState({
+    searchArea: "none",
+    button: "display"
+  });
 
   const pages = () => {
     const { actualPage, size, total } = state;
@@ -65,11 +68,20 @@ const Jobs = () => {
     })
   }
 
-  const toggleAdvanceSearch = () => {
-    if (showAdvanceSearch === "none") {
-      setShowAdvanceSearch("inline");
+  const toggleAdvanceSearch = e => {
+    const text = e.target;
+    if (show.searchArea === "none") {
+      setShow({
+        searchArea: "inline",
+        button: "none",
+      });
+      text.innerHTML = 'Less Options -'
     } else {
-      setShowAdvanceSearch("none");
+      setShow({
+        searchArea: "none",
+        button: "inline",
+      });
+      text.innerHTML = 'More Options +'
     }
   };
 
@@ -83,25 +95,23 @@ const Jobs = () => {
     console.log(formData)
   }
 
-  const selectRadioButton = e => {
-    const radioButton = e.target;
+  const handleChange = e => {
+    const element = e.target;
     let value;
 
-    if (radioButton.name === "remote") {
-      value = radioButton.value === "yes"
+    if (element.name === "remote") {
+      value = element.value === "yes"
 
       setFormData({
         ...formData,
-        [radioButton.name]: value,
+        [element.name]: value,
       });
     } else {
       setFormData({
         ...formData,
-        [radioButton.name]: radioButton.value,
+        [element.name]: element.value,
       });
     }
-
-    console.log(formData);
   }
 
   useEffect(() => {
@@ -144,25 +154,24 @@ const Jobs = () => {
       <div className="search">
         <form className="primary">
           <label htmlFor="skill">Search by skill/role</label><br />
-          <input type="text" name="skill" id="skill" placeholder="Ex: javascript, marketing..." />
-          <button type="submit">Search</button>
+          <input type="text" name="skill/role" id="skill" placeholder="Ex: javascript, marketing..." onChange={handleChange} />
           <button type="button" className="clear">Clear</button>
         </form>
+        <button type="button" style={{ display: `${show.button}` }} >Search</button>
         <p className="more-options" onClick={toggleAdvanceSearch}>More Options +</p>
-        <div className="secondary-search" style={{ display: `${showAdvanceSearch}` }}>
+        <div className="secondary-search" style={{ display: `${show.searchArea}` }}>
           <form className="secondary">
             <label htmlFor="organization">Search by organization</label><br />
-            <input type="text" name="organization" id="organization" placeholder="Ex: Torre" />
-            <button type="submit">Search</button>
+            <input type="text" name="organization" id="organization" placeholder="Ex: Torre" onChange={handleChange} />
             <button type="button" className="clear">Clear</button>
           </form>
-          <fieldset onChange={selectRadioButton}>
+          <fieldset onChange={handleChange}>
             <p className="radio-area-title">Remote</p>
             <input type="radio" name="remote" id="yes" value="yes" /><label htmlFor="yes">Yes</label>
             <input type="radio" name="remote" id="no" value="no" /><label htmlFor="no">No</label>
             <button type="button" className="clear" onClick={clearField}>Clear Field</button>
           </fieldset>
-          <fieldset onChange={selectRadioButton}>
+          <fieldset onChange={handleChange}>
             <p className="radio-area-title">Type</p>
             <input type="radio" name="type" id="fulltime" value="full-time-employment" /><label htmlFor="fulltime">Full-time</label>
             <input type="radio" name="type" id="parttime" value="part-time-employment" /><label htmlFor="parttime">Part-time</label>
@@ -170,12 +179,13 @@ const Jobs = () => {
             <input type="radio" name="type" id="internships" value="internships" /><label htmlFor="internships">Internships</label>
             <button type="button" className="clear" onClick={clearField}>Clear Field</button>
           </fieldset>
-          <fieldset onChange={selectRadioButton}>
+          <fieldset onChange={handleChange}>
             <p className="radio-area-title">Status</p>
             <input type="radio" name="status" id="open" value="open" /><label htmlFor="open">Open</label>
             <input type="radio" name="status" id="closed" value="closed" /><label htmlFor="closed">Closed</label>
             <button type="button" className="clear" onClick={clearField}>Clear Field</button>
           </fieldset>
+          <button type="button">Search</button>
         </div>
       </div>
       <div className="jobs-per-page">

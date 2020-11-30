@@ -46,21 +46,12 @@ $main-color-dark: #13315C;
       button {
         border: none;
         font-size: 16px;
-        margin-right: 5px;
-        background-color: $main-color;
         border-radius: 4px;
         color: $third-color;
         padding: 5px 10px;
         cursor: pointer;
-
-        &:hover {
-          background-color: $main-color-dark;
-        }
-      }
-
-      .clear {
         background-color: rgb(218, 74, 74);
-
+        
         &:hover {
           background-color: rgb(170, 36, 36);
         }
@@ -68,7 +59,7 @@ $main-color-dark: #13315C;
     }
 
     .more-options {
-      margin: 0 auto;
+      margin: 15px auto 5px;
       width: 15%;
       font-size: 16px;
       color: $main-color;
@@ -119,6 +110,34 @@ $main-color-dark: #13315C;
             background-color: rgb(170, 36, 36);
           }
         }
+      }
+
+      > button {
+          border: none;
+          font-size: 20px;
+          background-color: $main-color;
+          border-radius: 4px;
+          color: $third-color;
+          padding: 5px 10px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: $main-color-dark;
+          }
+      }
+    }
+
+    button {
+      border: none;
+      font-size: 20px;
+      background-color: $main-color;
+      border-radius: 4px;
+      color: $third-color;
+      padding: 5px 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $main-color-dark;
       }
     }
   }
