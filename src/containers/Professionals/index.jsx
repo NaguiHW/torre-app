@@ -121,10 +121,11 @@ const Professionals = () => {
         <div className="compensation">
           <p>Compensation Range (hourly)</p>
           <section>
-            <label htmlFor="min">Min</label>
-            <input type="number" name="min" id="min" />
-            <label htmlFor="max">Max</label>
-            <input type="number" name="max" id="max" />
+            <label htmlFor="min">Min:</label>
+            <input type="number" name="min" id="min" min="0" />
+            <label htmlFor="max">Max:</label>
+            <input type="number" name="max" id="max" min="0" />
+            <button type="button" className="clear" onClick={clearField}>Clear Fields</button>
           </section>
         </div>
         <button type="button">Search</button>
