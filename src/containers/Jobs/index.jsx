@@ -148,7 +148,9 @@ const Jobs = () => {
           compensation: job.compensation,
         })),
         total: response.data.total,
-      })
+      });
+
+      console.log(state);
     }
   }
 
@@ -178,7 +180,7 @@ const Jobs = () => {
         total: response.data.total,
       })
     }
-
+    console.log('useEffect');
     req();
     window.scrollTo(0, 0)
   }, [state.size, state.actualPage])
@@ -223,7 +225,7 @@ const Jobs = () => {
             <input type="radio" name="status" id="closed" value="closed" /><label htmlFor="closed">Closed</label>
             <button type="button" className="clear" onClick={clearField}>Clear Field</button>
           </fieldset>
-          <button type="button">Search</button>
+          <button type="button" onClick={search}>Search</button>
         </div>
       </div>
       <div className="jobs-per-page">

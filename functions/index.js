@@ -57,16 +57,31 @@ app.post('/people/search', async (request, response) => {
 app.post('/opportunities/search', async (request, response) => {
   const size = request.query.size;
   const offset = request.query.offset;
-  const body = JSON.stringify(request.body);
-  const bodyIsPresent = body !== JSON.stringify({});
+  const payload = [];
+  const requestedBody = JSON.stringify(request.body);
+  const bodyIsPresent = requestedBody !== JSON.stringify({});
   let res;
+
+  for (const key in request.body) {
+    if (key === 'remote' || key === 'organization') {
+      payload.push({ [key]: { term: request.body[key] } });
+    }
+    if (key === 'skill/role') {
+      payload.push({ [key]: { text: request.body[key], experience: 'potential-to-develop' } });
+    }
+    if (key === 'type' || key === 'status') {
+      payload.push({ [key]: { code: request.body[key] } });
+    }
+  }
+
+  const bodyToSend = JSON.stringify({ and: payload });
 
   try {
     if (bodyIsPresent) {
-      console.log(body);
+      console.log(bodyToSend);
       res = await fetch(`https://search.torre.co/opportunities/_search/?size=${size}&offset=${offset}`, {
         method: 'POST',
-        body,
+        body: bodyToSend,
         headers: {
           'Content-Type': 'application/json;charset=utf-8'
         },
@@ -78,7 +93,6 @@ app.post('/opportunities/search', async (request, response) => {
     }
 
     const data = await res.json();
-    console.log(data);
     response.status(200).send({
       data: data.results,
       total: data.total,
