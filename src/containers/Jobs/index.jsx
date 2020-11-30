@@ -11,8 +11,8 @@ const Jobs = () => {
     jobs: [],
     total: 0,
   });
-
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({});
+  const [showAdvanceSearch, setShowAdvanceSearch] = useState("none");
 
   const pages = () => {
     const { actualPage, size, total } = state;
@@ -65,6 +65,14 @@ const Jobs = () => {
     })
   }
 
+  const toggleAdvanceSearch = () => {
+    if (showAdvanceSearch === "none") {
+      setShowAdvanceSearch("inline");
+    } else {
+      setShowAdvanceSearch("none");
+    }
+  };
+
   useEffect(() => {
     const req = async () => {
       const { actualPage, size } = state;
@@ -109,8 +117,8 @@ const Jobs = () => {
           <button type="submit">Search</button>
           <button type="button" className="clear">Clear</button>
         </form>
-        <p className="more-options">More Options +</p>
-        <div className="secondary-search">
+        <p className="more-options" onClick={toggleAdvanceSearch}>More Options +</p>
+        <div className="secondary-search" style={{ display: `${showAdvanceSearch}` }}>
           <form className="secondary">
             <label htmlFor="organization">Search by organization</label><br />
             <input type="text" name="organization" id="organization" placeholder="Ex: javascript, marketing..." />
