@@ -81,6 +81,28 @@ const Jobs = () => {
     }
   }
 
+  const selectRadioButton = e => {
+    const radioButton = e.target;
+    let value;
+
+    if (radioButton.name === "remote") {
+      value = radioButton.value === "yes"
+
+      setFormData({
+        ...formData,
+        [radioButton.name]: value,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [radioButton.name]: radioButton.value,
+      });
+    }
+
+
+    console.log(formData);
+  }
+
   useEffect(() => {
     const req = async () => {
       const { actualPage, size } = state;
@@ -129,17 +151,17 @@ const Jobs = () => {
         <div className="secondary-search" style={{ display: `${showAdvanceSearch}` }}>
           <form className="secondary">
             <label htmlFor="organization">Search by organization</label><br />
-            <input type="text" name="organization" id="organization" placeholder="Ex: javascript, marketing..." />
+            <input type="text" name="organization" id="organization" placeholder="Ex: Torre" />
             <button type="submit">Search</button>
             <button type="button" className="clear">Clear</button>
           </form>
-          <fieldset>
+          <fieldset onChange={selectRadioButton}>
             <p className="radio-area-title">Remote</p>
-            <input type="radio" name="remote" id="yes" value="1" /><label htmlFor="yes">Yes</label>
-            <input type="radio" name="remote" id="no" value="0" /><label htmlFor="no">No</label>
+            <input type="radio" name="remote" id="yes" value="yes" /><label htmlFor="yes">Yes</label>
+            <input type="radio" name="remote" id="no" value="no" /><label htmlFor="no">No</label>
             <button type="button" className="clear" onClick={clearField}>Clear Field</button>
           </fieldset>
-          <fieldset>
+          <fieldset onChange={selectRadioButton}>
             <p className="radio-area-title">Type</p>
             <input type="radio" name="type" id="fulltime" value="full-time-employment" /><label htmlFor="fulltime">Full-time</label>
             <input type="radio" name="type" id="parttime" value="part-time-employment" /><label htmlFor="parttime">Part-time</label>
@@ -147,7 +169,7 @@ const Jobs = () => {
             <input type="radio" name="type" id="internships" value="internships" /><label htmlFor="internships">Internships</label>
             <button type="button" className="clear" onClick={clearField}>Clear Field</button>
           </fieldset>
-          <fieldset>
+          <fieldset onChange={selectRadioButton}>
             <p className="radio-area-title">Status</p>
             <input type="radio" name="status" id="open" value="open" /><label htmlFor="open">Open</label>
             <input type="radio" name="status" id="closed" value="closed" /><label htmlFor="closed">Closed</label>
