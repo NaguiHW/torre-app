@@ -12,6 +12,8 @@ const Professionals = () => {
     total: 0,
   });
 
+  const [formData, setFormData] = useState({});
+
   const pages = () => {
     const { actualPage, size, total } = state;
     const lastPage = total % size === 0 ? total / size : Math.ceil(total / size);
@@ -63,7 +65,75 @@ const Professionals = () => {
     }
   }
 
-  const clearField = () => { };
+  const clearField = e => {
+    const radioButtons = e.target.parentElement.children;
+
+    for (let i = 1; i < radioButtons.length - 2; i += 2) {
+      radioButtons[i].checked = false;
+    }
+    delete formData[radioButtons[1].name]
+  };
+
+  const clearText = e => {
+    const textField = e.target.parentElement.children;
+
+    for (let i = 1; i < textField.length; i += 2) {
+      textField[i].value = '';
+    }
+
+    delete formData[textField.name];
+  }
+
+  const handleChange = e => {
+    const element = e.target;
+    let value;
+
+    if (element.name === "remote") {
+      value = element.value === "yes"
+
+      setFormData({
+        ...formData,
+        [element.name]: value,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [element.name]: element.value,
+      });
+    }
+    console.log(formData);
+  }
+
+  const search = async e => {
+    e.preventDefault();
+    const { actualPage, size } = state;
+    const offset = (actualPage - 1) * size;
+    const hasData = Object.keys(formData).length > 0;
+
+    if (hasData) {
+      const response = await axios({
+        method: 'post',
+        url: `/people/search?size=${size}&offset=${offset}`,
+        data: formData,
+      });
+
+      setState({
+        ...state,
+        professionals: response.data.data.map(professional => ({
+          username: professional.username,
+          location: professional.locationName,
+          name: professional.name,
+          openTo: professional.openTo,
+          picture: professional.picture,
+          skills: professional.skills,
+          professionalHeadline: professional.professionalHeadline,
+        })),
+        total: response.data.total,
+      })
+
+      console.log(state);
+    }
+  }
 
   useEffect(() => {
     const req = async () => {
@@ -87,7 +157,7 @@ const Professionals = () => {
           professionalHeadline: professional.professionalHeadline,
         })),
         total: response.data.total,
-      })
+      });
     }
 
     req();
@@ -101,13 +171,13 @@ const Professionals = () => {
         <h1>Professionals</h1>
       </div>
       <div className="search">
-        <fieldset>
+        <fieldset onChange={handleChange}>
           <p className="radio-area-title">Remote?</p>
           <input type="radio" name="remoter" id="yes" value="yes" /><label htmlFor="yes">Yes</label>
           <input type="radio" name="remoter" id="no" value="no" /><label htmlFor="no">No</label>
           <button type="button" className="clear" onClick={clearField}>Clear Field</button>
         </fieldset>
-        <fieldset>
+        <fieldset onChange={handleChange}>
           <p className="radio-area-title">Open to:</p>
           <input type="radio" name="opento" id="advising" value="advising" /><label htmlFor="advising">Advising</label>
           <input type="radio" name="opento" id="freelance-gigs" value="freelance-gigs" /><label htmlFor="freelance-gigs">Freelance</label>
@@ -122,13 +192,13 @@ const Professionals = () => {
           <p>Compensation Range (hourly)</p>
           <section>
             <label htmlFor="min">Min:</label>
-            <input type="number" name="min" id="min" min="0" />
+            <input type="number" name="min" id="min" min="0" onChange={handleChange} />
             <label htmlFor="max">Max:</label>
-            <input type="number" name="max" id="max" min="0" />
-            <button type="button" className="clear" onClick={clearField}>Clear Fields</button>
+            <input type="number" name="max" id="max" min="0" onChange={handleChange} />
+            <button type="button" className="clear" onClick={clearText}>Clear Fields</button>
           </section>
         </div>
-        <button type="button">Search</button>
+        <button type="button" onClick={search}>Search</button>
       </div>
       <div className="professionals-per-page">
         <p>Professionals per page:</p>
