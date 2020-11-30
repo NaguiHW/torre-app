@@ -6,7 +6,7 @@ import './style.scss';
 
 const Professionals = () => {
   const [state, setState] = useState({
-    actualPage: 7810,
+    actualPage: 1,
     size: 20,
     professionals: [],
     total: 0,
