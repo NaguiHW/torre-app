@@ -16,41 +16,24 @@ app.use(express.json());
 app.post('/people/search', async (request, response) => {
   const size = request.query.size;
   const offset = request.query.offset;
-  const bodyIsPresent = JSON.stringify(request.body) === JSON.stringify({});
+  const payload = [];
+  const requestedBody = JSON.stringify(request.body);
+  const bodyIsPresent = requestedBody !== JSON.stringify({});
+  // let res;
 
-  if (bodyIsPresent) {
-    try {
-      const res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
-        method: 'POST',
-        body: JSON.stringify(request.body),
-      });
+  try {
+    const res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
+      method: 'POST',
+    });
 
-      const data = await res.json();
+    const data = await res.json();
 
-      response.status(200).send({
-        data: data.results,
-        total: data.total,
-      });
-    } catch (err) {
+    response.status(200).send({
+      data: data.results,
+      total: data.total,
+    });
+  } catch (err) {
 
-    }
-  } else {
-    try {
-      const res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
-        method: 'POST',
-      });
-
-      const data = await res.json();
-
-      response.status(200).send({
-        data: data.results,
-        total: data.total,
-      });
-    } catch (error) {
-      response.status(400).send({
-        error,
-      })
-    }
   }
 });
 
