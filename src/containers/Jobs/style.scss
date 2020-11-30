@@ -23,6 +23,106 @@ $main-color-dark: #13315C;
     }
   }
 
+  .search {
+    width: 100%;
+    text-align: center;
+
+    .primary, .secondary {
+      padding: 10px 0;
+
+      label {
+        font-size: 24px;
+      }
+
+      input {
+        width: 60%;
+        font-size: 16px;
+        padding-top: 4px;
+        margin-right: 5px;
+        border: none;
+        border-bottom: 1px solid $main-color;
+      }
+
+      button {
+        border: none;
+        font-size: 16px;
+        margin-right: 5px;
+        background-color: $main-color;
+        border-radius: 4px;
+        color: $third-color;
+        padding: 5px 10px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $main-color-dark;
+        }
+      }
+
+      .clear {
+        background-color: rgb(218, 74, 74);
+
+        &:hover {
+          background-color: rgb(170, 36, 36);
+        }
+      }
+    }
+
+    .more-options {
+      margin: 0 auto;
+      width: 15%;
+      font-size: 16px;
+      color: $main-color;
+      cursor: pointer;
+
+      &:hover {
+        color: $main-color-dark;
+        text-decoration: underline;
+      }
+    }
+
+    .secondary-search {
+      margin-bottom: 10px;
+
+      fieldset {
+        text-align: justify;
+        border: none;
+        width: 50%;
+        margin: 0 auto;
+
+        .radio-area-title {
+          text-align: center;
+          font-size: 24px;
+          margin-bottom: 5px;
+        }
+
+        input {
+          margin: 0 5px;
+        }
+
+        label {
+          margin-right: 5px;
+          font-size: 18px;
+          cursor: pointer;
+        }
+
+        .clear {
+          border: none;
+          font-size: 16px;
+          border-radius: 4px;
+          color: $third-color;
+          margin-left: 5px;
+          padding: 5px 10px;
+          cursor: pointer;
+          background-color: rgb(218, 74, 74);
+  
+          &:hover {
+            background-color: rgb(170, 36, 36);
+          }
+        }
+      }
+    }
+  }
+
   .jobs-per-page {
     display: flex;
     justify-content: center;

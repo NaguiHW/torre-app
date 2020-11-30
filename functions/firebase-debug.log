@@ -574,3 +574,108 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 [info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Finished \"api\" in ~1s"}}
 [debug] [2020-11-30T00:20:46.367Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE"}}
 [debug] [2020-11-30T00:20:46.367Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-11-30T00:26:57.726Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-11-30T00:26:57.726Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-11-30T00:26:57.726Z] Accepted request POST /torre-app/us-central1/api/opportunities/search?size=20&offset=0 --> api
+[debug] [2020-11-30T00:26:57.727Z] [worker-pool] submitWork(triggerId=api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=api)"}}
+[debug] [2020-11-30T00:26:57.727Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:26:57.727Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY"}}
+[debug] [2020-11-30T00:26:57.728Z] [runtime-status] [4842] Trigger "api" has been found, beginning invocation! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Trigger \"api\" has been found, beginning invocation!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Beginning execution of \"api\""}}
+[debug] [2020-11-30T00:26:57.729Z] [runtime-status] [4842] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] triggerDefinition {\"httpsTrigger\":{},\"name\":\"api\",\"entryPoint\":\"api\"}"}}
+[debug] [2020-11-30T00:26:57.729Z] [runtime-status] [4842] Running api in mode HTTPS {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Running api in mode HTTPS"}}
+[debug] [2020-11-30T00:26:57.729Z] [runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:26:57.737Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2020-11-30T00:26:57.740Z] [runtime-status] [4842] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server handling POST request"}}
+[debug] [2020-11-30T00:26:57.741Z] [runtime-status] [4842] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Finished \"api\" in ~1s"}}
+[debug] [2020-11-30T00:26:58.500Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE"}}
+[debug] [2020-11-30T00:26:58.500Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-11-30T00:28:45.646Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-11-30T00:28:45.646Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-11-30T00:28:45.646Z] Accepted request POST /torre-app/us-central1/api/opportunities/search?size=20&offset=0 --> api
+[debug] [2020-11-30T00:28:45.647Z] [worker-pool] submitWork(triggerId=api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=api)"}}
+[debug] [2020-11-30T00:28:45.647Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:28:45.647Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY"}}
+[debug] [2020-11-30T00:28:45.647Z] [runtime-status] [4842] Trigger "api" has been found, beginning invocation! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Trigger \"api\" has been found, beginning invocation!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Beginning execution of \"api\""}}
+[debug] [2020-11-30T00:28:45.648Z] [runtime-status] [4842] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] triggerDefinition {\"httpsTrigger\":{},\"name\":\"api\",\"entryPoint\":\"api\"}"}}
+[debug] [2020-11-30T00:28:45.649Z] [runtime-status] [4842] Running api in mode HTTPS {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Running api in mode HTTPS"}}
+[debug] [2020-11-30T00:28:45.649Z] [runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:28:45.651Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2020-11-30T00:28:45.653Z] [runtime-status] [4842] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server handling POST request"}}
+[debug] [2020-11-30T00:28:45.655Z] [runtime-status] [4842] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Finished \"api\" in ~1s"}}
+[debug] [2020-11-30T00:28:46.482Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE"}}
+[debug] [2020-11-30T00:28:46.483Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-11-30T00:43:15.980Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-11-30T00:43:15.980Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-11-30T00:43:15.980Z] Accepted request POST /torre-app/us-central1/api/opportunities/search?size=20&offset=0 --> api
+[debug] [2020-11-30T00:43:15.980Z] [worker-pool] submitWork(triggerId=api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=api)"}}
+[debug] [2020-11-30T00:43:15.980Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:43:15.980Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY"}}
+[debug] [2020-11-30T00:43:15.981Z] [runtime-status] [4842] Trigger "api" has been found, beginning invocation! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Trigger \"api\" has been found, beginning invocation!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Beginning execution of \"api\""}}
+[debug] [2020-11-30T00:43:15.983Z] [runtime-status] [4842] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] triggerDefinition {\"httpsTrigger\":{},\"name\":\"api\",\"entryPoint\":\"api\"}"}}
+[debug] [2020-11-30T00:43:15.983Z] [runtime-status] [4842] Running api in mode HTTPS {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Running api in mode HTTPS"}}
+[debug] [2020-11-30T00:43:15.983Z] [runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:43:15.989Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2020-11-30T00:43:15.992Z] [runtime-status] [4842] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server handling POST request"}}
+[debug] [2020-11-30T00:43:15.993Z] [runtime-status] [4842] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Finished \"api\" in ~1s"}}
+[debug] [2020-11-30T00:43:16.774Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE"}}
+[debug] [2020-11-30T00:43:16.774Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-11-30T00:43:59.135Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-11-30T00:43:59.135Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-11-30T00:43:59.135Z] Accepted request POST /torre-app/us-central1/api/opportunities/search?size=20&offset=0 --> api
+[debug] [2020-11-30T00:43:59.135Z] [worker-pool] submitWork(triggerId=api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=api)"}}
+[debug] [2020-11-30T00:43:59.136Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:43:59.136Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY"}}
+[debug] [2020-11-30T00:43:59.137Z] [runtime-status] [4842] Trigger "api" has been found, beginning invocation! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Trigger \"api\" has been found, beginning invocation!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Beginning execution of \"api\""}}
+[debug] [2020-11-30T00:43:59.137Z] [runtime-status] [4842] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] triggerDefinition {\"httpsTrigger\":{},\"name\":\"api\",\"entryPoint\":\"api\"}"}}
+[debug] [2020-11-30T00:43:59.138Z] [runtime-status] [4842] Running api in mode HTTPS {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Running api in mode HTTPS"}}
+[debug] [2020-11-30T00:43:59.138Z] [runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:43:59.144Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2020-11-30T00:43:59.146Z] [runtime-status] [4842] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server handling POST request"}}
+[debug] [2020-11-30T00:43:59.148Z] [runtime-status] [4842] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Finished \"api\" in ~1s"}}
+[debug] [2020-11-30T00:43:59.743Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE"}}
+[debug] [2020-11-30T00:43:59.743Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-11-30T00:50:23.682Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-11-30T00:50:23.682Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-11-30T00:50:23.682Z] Accepted request POST /torre-app/us-central1/api/opportunities/search?size=20&offset=0 --> api
+[debug] [2020-11-30T00:50:23.683Z] [worker-pool] submitWork(triggerId=api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=api)"}}
+[debug] [2020-11-30T00:50:23.685Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:50:23.687Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY"}}
+[debug] [2020-11-30T00:50:23.688Z] [runtime-status] [4842] Trigger "api" has been found, beginning invocation! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Trigger \"api\" has been found, beginning invocation!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Beginning execution of \"api\""}}
+[debug] [2020-11-30T00:50:23.690Z] [runtime-status] [4842] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] triggerDefinition {\"httpsTrigger\":{},\"name\":\"api\",\"entryPoint\":\"api\"}"}}
+[debug] [2020-11-30T00:50:23.690Z] [runtime-status] [4842] Running api in mode HTTPS {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Running api in mode HTTPS"}}
+[debug] [2020-11-30T00:50:23.690Z] [runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:50:23.697Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2020-11-30T00:50:23.699Z] [runtime-status] [4842] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server handling POST request"}}
+[debug] [2020-11-30T00:50:23.701Z] [runtime-status] [4842] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Finished \"api\" in ~1s"}}
+[debug] [2020-11-30T00:50:24.318Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE"}}
+[debug] [2020-11-30T00:50:24.319Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-11-30T00:54:46.141Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-11-30T00:54:46.145Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-11-30T00:54:46.146Z] Accepted request POST /torre-app/us-central1/api/opportunities/search?size=60&offset=0 --> api
+[debug] [2020-11-30T00:54:46.146Z] [worker-pool] submitWork(triggerId=api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=api)"}}
+[debug] [2020-11-30T00:54:46.146Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: Assigning socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:54:46.146Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: BUSY"}}
+[debug] [2020-11-30T00:54:46.147Z] [runtime-status] [4842] Trigger "api" has been found, beginning invocation! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Trigger \"api\" has been found, beginning invocation!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Beginning execution of \"api\""}}
+[debug] [2020-11-30T00:54:46.148Z] [runtime-status] [4842] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] triggerDefinition {\"httpsTrigger\":{},\"name\":\"api\",\"entryPoint\":\"api\"}"}}
+[debug] [2020-11-30T00:54:46.148Z] [runtime-status] [4842] Running api in mode HTTPS {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Running api in mode HTTPS"}}
+[debug] [2020-11-30T00:54:46.148Z] [runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Attempting to listen to socketPath: /tmp/fire_emu_4842.sock"}}
+[debug] [2020-11-30T00:54:46.150Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2020-11-30T00:54:46.154Z] [runtime-status] [4842] Ephemeral server handling POST request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server handling POST request"}}
+[warn] ⚠  External network resource requested!
+   - URL: "https://search.torre.co/opportunities/_search/?size=60&offset=0"
+ - Be careful, this may be a production service. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"External network resource requested!\n   - URL: \"https://search.torre.co/opportunities/_search/?size=60&offset=0\"\n - Be careful, this may be a production service."}}
+[debug] [2020-11-30T00:54:46.155Z] [runtime-status] [4842] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"[runtime-status] [4842] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"api"},"message":"Finished \"api\" in ~1s"}}
+[debug] [2020-11-30T00:54:46.914Z] [worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-api-4e9a3b40-0cf5-4a85-b914-1e23cb149ef1]: IDLE"}}
+[debug] [2020-11-30T00:54:46.915Z] [work-queue] {"queueLength":0,"workRunningCount":0}

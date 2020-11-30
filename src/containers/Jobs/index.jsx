@@ -104,10 +104,10 @@ const Jobs = () => {
       </div>
       <div className="search">
         <form className="primary">
-          <label htmlFor="skill">Search by Skill/Role</label><br />
+          <label htmlFor="skill">Search by skill/role</label><br />
           <input type="text" name="skill" id="skill" placeholder="Ex: javascript, marketing..." />
           <button type="submit">Search</button>
-          <button type="button">Clear</button>
+          <button type="button" className="clear">Clear</button>
         </form>
         <p className="more-options">More Options +</p>
         <div className="secondary-search">
@@ -115,12 +115,13 @@ const Jobs = () => {
             <label htmlFor="organization">Search by organization</label><br />
             <input type="text" name="organization" id="organization" placeholder="Ex: javascript, marketing..." />
             <button type="submit">Search</button>
+            <button type="button" className="clear">Clear</button>
           </form>
           <fieldset>
             <p className="radio-area-title">Remote</p>
             <input type="radio" name="remote" id="yes" value="1" /><label htmlFor="yes">Yes</label>
             <input type="radio" name="remote" id="no" value="0" /><label htmlFor="no">No</label>
-            <button type="button">Clear Field</button>
+            <button type="button" className="clear">Clear Field</button>
           </fieldset>
           <fieldset>
             <p className="radio-area-title">Type</p>
@@ -128,13 +129,13 @@ const Jobs = () => {
             <input type="radio" name="type" id="parttime" value="part-time-employment" /><label htmlFor="parttime">Part-time</label>
             <input type="radio" name="type" id="freelance" value="freelance-gigs" /><label htmlFor="freelance">Freelance</label>
             <input type="radio" name="type" id="internships" value="internships" /><label htmlFor="internships">Internships</label>
-            <button type="button">Clear Field</button>
+            <button type="button" className="clear">Clear Field</button>
           </fieldset>
           <fieldset>
             <p className="radio-area-title">Status</p>
             <input type="radio" name="status" id="open" value="open" /><label htmlFor="open">Open</label>
             <input type="radio" name="status" id="closed" value="closed" /><label htmlFor="closed">Closed</label>
-            <button type="button">Clear Field</button>
+            <button type="button" className="clear">Clear Field</button>
           </fieldset>
         </div>
       </div>
