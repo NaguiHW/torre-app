@@ -18,6 +18,7 @@ const Professionals = () => {
     setState({
       ...state,
       size: Number(e.target.innerHTML),
+      actualPage: 1,
     })
   }
 
@@ -139,6 +140,9 @@ const Professionals = () => {
         <button type="button" className={state.size === 60 ? 'button-selected' : 'button'} onClick={updateSize}>60</button>
         <button type="button" className={state.size === 100 ? 'button-selected' : 'button'} onClick={updateSize}>100</button>
       </div>
+      <div className="actual-page">
+        <p>Page {state.actualPage}</p>
+      </div>
       <div className="professionals-container">
         {
           state.professionals.map(professional => (
@@ -153,6 +157,9 @@ const Professionals = () => {
             />
           ))
         }
+      </div>
+      <div className="actual-page">
+        <p>Page {state.actualPage}</p>
       </div>
       <div className="pages">
         <button type="button" onClick={goTo} disabled={state.actualPage === 1}>Prev</button>
