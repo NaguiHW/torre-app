@@ -13,16 +13,36 @@ app.use(cors({ origin: true }));
 app.use(express.json());
 
 // API Routes
-app.get('/', (request, response) => response.status(200).send('Hello World'));
-
 app.post('/people/search', async (request, response) => {
   const size = request.query.size;
   const offset = request.query.offset;
+  const payload = [];
+  const requestedBody = JSON.stringify(request.body);
+  const bodyIsPresent = requestedBody !== JSON.stringify({});
+  let res;
+
+  for (const key in request.body) {
+    if (key === 'remoter' || key === 'opento') {
+      payload.push({ [key]: { term: request.body[key] } });
+    }
+  }
+
+  const bodyToSend = JSON.stringify({ and: payload });
 
   try {
-    const res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
-      method: 'POST',
-    });
+    if (bodyIsPresent) {
+      res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
+        method: 'POST',
+        body: bodyToSend,
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+      });
+    } else {
+      res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
+        method: 'POST',
+      });
+    }
 
     const data = await res.json();
 
@@ -30,24 +50,51 @@ app.post('/people/search', async (request, response) => {
       data: data.results,
       total: data.total,
     });
-  } catch (error) {
+  } catch (err) {
     response.status(400).send({
       error,
-    })
+    });
   }
 });
 
 app.post('/opportunities/search', async (request, response) => {
   const size = request.query.size;
   const offset = request.query.offset;
+  const payload = [];
+  const requestedBody = JSON.stringify(request.body);
+  const bodyIsPresent = requestedBody !== JSON.stringify({});
+  let res;
+
+  for (const key in request.body) {
+    if (key === 'remote' || key === 'organization') {
+      payload.push({ [key]: { term: request.body[key] } });
+    }
+    if (key === 'skill/role') {
+      payload.push({ [key]: { text: request.body[key], experience: 'potential-to-develop' } });
+    }
+    if (key === 'type' || key === 'status') {
+      payload.push({ [key]: { code: request.body[key] } });
+    }
+  }
+
+  const bodyToSend = JSON.stringify({ and: payload });
 
   try {
-    const res = await fetch(`https://search.torre.co/opportunities/_search/?size=${size}&offset=${offset}`, {
-      method: 'POST',
-    });
+    if (bodyIsPresent) {
+      res = await fetch(`https://search.torre.co/opportunities/_search/?size=${size}&offset=${offset}`, {
+        method: 'POST',
+        body: bodyToSend,
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+      });
+    } else {
+      res = await fetch(`https://search.torre.co/opportunities/_search/?size=${size}&offset=${offset}`, {
+        method: 'POST',
+      });
+    }
 
     const data = await res.json();
-
     response.status(200).send({
       data: data.results,
       total: data.total,
@@ -98,6 +145,7 @@ app.get('/bios/:username', async (request, response) => {
     });
   }
 });
+
 
 // Listen Command
 exports.api = functions.https.onRequest(app);
