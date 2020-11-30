@@ -162,7 +162,7 @@ const Jobs = () => {
         method: 'post',
         url: `/opportunities/search?size=${size}&offset=${offset}`,
       });
-
+      console.log(response);
       setState({
         ...state,
         jobs: response.data.data.map(job => ({

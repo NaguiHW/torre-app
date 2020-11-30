@@ -51,7 +51,9 @@ app.post('/people/search', async (request, response) => {
       total: data.total,
     });
   } catch (err) {
-
+    response.status(400).send({
+      error,
+    });
   }
 });
 
