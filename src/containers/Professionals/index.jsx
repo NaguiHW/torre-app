@@ -37,8 +37,6 @@ const Professionals = () => {
         actualPage: newPage,
       });
     }
-    console.log(state.actualPage);
-    console.log(state.actualPage === Math.ceil(state.total / state.size));
   }
 
   const clearField = e => {
@@ -47,7 +45,6 @@ const Professionals = () => {
     for (let i = 1; i < radioButtons.length - 2; i += 2) {
       radioButtons[i].checked = false;
     }
-    console.log(state);
     delete formData[radioButtons[1].name]
   };
 

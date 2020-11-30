@@ -35,8 +35,6 @@ const Jobs = () => {
         actualPage: newPage,
       });
     }
-    console.log(state.actualPage);
-    console.log(state.actualPage === Math.ceil(state.total / state.size));
   }
 
   const updateSize = e => {
@@ -94,7 +92,6 @@ const Jobs = () => {
   const clearText = e => {
     const textField = e.target.parentElement.children[2];
     textField.value = '';
-    console.log(state);
     delete formData[textField.name];
   };
 
