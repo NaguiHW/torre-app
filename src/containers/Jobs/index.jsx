@@ -41,7 +41,8 @@ const Jobs = () => {
     setState({
       ...state,
       size: Number(e.target.innerHTML),
-    })
+      actualPage: 1,
+    });
   }
 
   const toggleAdvanceSearch = e => {
