@@ -79,6 +79,8 @@ const Jobs = () => {
     for (let i = 1; i < radioButtons.length - 2; i += 2) {
       radioButtons[i].checked = false;
     }
+    delete formData[radioButtons[1].name]
+    console.log(formData)
   }
 
   const selectRadioButton = e => {
@@ -98,7 +100,6 @@ const Jobs = () => {
         [radioButton.name]: radioButton.value,
       });
     }
-
 
     console.log(formData);
   }
