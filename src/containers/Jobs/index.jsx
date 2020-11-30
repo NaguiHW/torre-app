@@ -121,6 +121,37 @@ const Jobs = () => {
     delete formData[textField.name];
   }
 
+  const search = async e => {
+    e.preventDefault();
+    const { actualPage, size } = state;
+    const offset = (actualPage - 1) * size;
+    const hasData = Object.keys(formData).length > 0;
+
+    if (hasData) {
+      const response = await axios({
+        method: 'post',
+        url: `/opportunities/search?size=${size}&offset=${offset}`,
+        data: formData,
+      });
+
+      setState({
+        ...state,
+        jobs: response.data.data.map(job => ({
+          id: job.id,
+          title: job.objective,
+          organization: job.organizations,
+          skills: job.skills,
+          type: job.type,
+          status: job.status,
+          deadline: job.deadline,
+          locations: job.locations,
+          compensation: job.compensation,
+        })),
+        total: response.data.total,
+      })
+    }
+  }
+
   useEffect(() => {
     const req = async () => {
       const { actualPage, size } = state;
@@ -159,12 +190,12 @@ const Jobs = () => {
         <h1>Job Opportunity</h1>
       </div>
       <div className="search">
-        <form className="primary">
+        <form className="primary" onSubmit={search}>
           <label htmlFor="skill">Search by skill/role</label><br />
           <input type="text" name="skill/role" id="skill" placeholder="Ex: javascript, marketing..." onChange={handleChange} />
           <button type="button" className="clear" onClick={clearText}>Clear</button>
         </form>
-        <button type="button" style={{ display: `${show.button}` }} >Search</button>
+        <button type="button" style={{ display: `${show.button}` }} onClick={search}>Search</button>
         <p className="more-options" onClick={toggleAdvanceSearch}>More Options +</p>
         <div className="secondary-search" style={{ display: `${show.searchArea}` }}>
           <form className="secondary">

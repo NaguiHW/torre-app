@@ -22,10 +22,11 @@ app.post('/people/search', async (request, response) => {
     try {
       const res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
         method: 'POST',
+        body: JSON.stringify(request.body),
       });
-  
+
       const data = await res.json();
-  
+
       response.status(200).send({
         data: data.results,
         total: data.total,
@@ -38,9 +39,9 @@ app.post('/people/search', async (request, response) => {
       const res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
         method: 'POST',
       });
-  
+
       const data = await res.json();
-  
+
       response.status(200).send({
         data: data.results,
         total: data.total,
@@ -56,14 +57,28 @@ app.post('/people/search', async (request, response) => {
 app.post('/opportunities/search', async (request, response) => {
   const size = request.query.size;
   const offset = request.query.offset;
+  const body = JSON.stringify(request.body);
+  const bodyIsPresent = body !== JSON.stringify({});
+  let res;
 
   try {
-    const res = await fetch(`https://search.torre.co/opportunities/_search/?size=${size}&offset=${offset}`, {
-      method: 'POST',
-    });
+    if (bodyIsPresent) {
+      console.log(body);
+      res = await fetch(`https://search.torre.co/opportunities/_search/?size=${size}&offset=${offset}`, {
+        method: 'POST',
+        body,
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+      });
+    } else {
+      res = await fetch(`https://search.torre.co/opportunities/_search/?size=${size}&offset=${offset}`, {
+        method: 'POST',
+      });
+    }
 
     const data = await res.json();
-
+    console.log(data);
     response.status(200).send({
       data: data.results,
       total: data.total,
