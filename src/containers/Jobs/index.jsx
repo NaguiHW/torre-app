@@ -150,7 +150,6 @@ const Jobs = () => {
         total: response.data.total,
       });
 
-      console.log(state);
     }
   }
 
@@ -180,7 +179,7 @@ const Jobs = () => {
         total: response.data.total,
       })
     }
-    console.log('useEffect');
+
     req();
     window.scrollTo(0, 0)
   }, [state.size, state.actualPage])

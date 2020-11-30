@@ -69,57 +69,6 @@ $main-color-dark: #13315C;
       width: 19%;
     }
 
-    .compensation {
-      p {
-        text-align: center;
-        font-size: 24px;
-        margin-bottom: 5px;
-      }
-
-      section {
-        label {
-          margin-right: 5px;
-          font-size: 18px;
-        }
-
-        input {
-          width: 75px;
-          margin-right: 15px;
-          font-size: 16px;
-          padding-top: 4px;
-          border: none;
-          border-bottom: 1px solid $main-color;
-        }
-
-        /* Chrome, Safari, Edge, Opera */
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
-        }
-
-        /* Firefox */
-        input[type=number] {
-          -moz-appearance: textfield;
-        }
-
-        .clear {
-          border: none;
-          font-size: 16px;
-          border-radius: 4px;
-          color: $third-color;
-          margin-left: 5px;
-          padding: 5px 10px;
-          cursor: pointer;
-          background-color: rgb(218, 74, 74);
-  
-          &:hover {
-            background-color: rgb(170, 36, 36);
-          }
-        }
-      }
-    }
-
     > button {
       border: none;
       font-size: 20px;
@@ -127,7 +76,7 @@ $main-color-dark: #13315C;
       border-radius: 4px;
       color: $third-color;
       padding: 5px 10px;
-      margin: 15px 0 10px;
+      margin: 10px 0 10px;
       cursor: pointer;
 
       &:hover {

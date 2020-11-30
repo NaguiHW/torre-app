@@ -88,7 +88,7 @@ const Professionals = () => {
     const element = e.target;
     let value;
 
-    if (element.name === "remote") {
+    if (element.name === "remoter") {
       value = element.value === "yes"
 
       setFormData({
@@ -101,7 +101,6 @@ const Professionals = () => {
         [element.name]: element.value,
       });
     }
-    console.log(formData);
   }
 
   const search = async e => {
@@ -130,8 +129,6 @@ const Professionals = () => {
         })),
         total: response.data.total,
       })
-
-      console.log(state);
     }
   }
 
@@ -185,19 +182,9 @@ const Professionals = () => {
           <input type="radio" name="opento" id="hiring" value="hiring" /><label htmlFor="hiring">Hiring</label>
           <input type="radio" name="opento" id="internships" value="internships" /><label htmlFor="internships">Internships</label>
           <input type="radio" name="opento" id="mentoring" value="mentoring" /><label htmlFor="mentoring">Mentoring</label>
-          <input type="radio" name="opento" id="part-tume-employment" value="part-tume-employment" /><label htmlFor="part-tume-employment">Part-time</label>
+          <input type="radio" name="opento" id="part-time-employment" value="part-time-employment" /><label htmlFor="part-time-employment">Part-time</label>
           <button type="button" className="clear" onClick={clearField}>Clear Field</button>
         </fieldset>
-        <div className="compensation">
-          <p>Compensation Range (hourly)</p>
-          <section>
-            <label htmlFor="min">Min:</label>
-            <input type="number" name="min" id="min" min="0" onChange={handleChange} />
-            <label htmlFor="max">Max:</label>
-            <input type="number" name="max" id="max" min="0" onChange={handleChange} />
-            <button type="button" className="clear" onClick={clearText}>Clear Fields</button>
-          </section>
-        </div>
         <button type="button" onClick={search}>Search</button>
       </div>
       <div className="professionals-per-page">

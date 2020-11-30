@@ -19,12 +19,30 @@ app.post('/people/search', async (request, response) => {
   const payload = [];
   const requestedBody = JSON.stringify(request.body);
   const bodyIsPresent = requestedBody !== JSON.stringify({});
-  // let res;
+  let res;
+
+  for (const key in request.body) {
+    if (key === 'remoter' || key === 'opento') {
+      payload.push({ [key]: { term: request.body[key] } });
+    }
+  }
+
+  const bodyToSend = JSON.stringify({ and: payload });
 
   try {
-    const res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
-      method: 'POST',
-    });
+    if (bodyIsPresent) {
+      res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
+        method: 'POST',
+        body: bodyToSend,
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+      });
+    } else {
+      res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
+        method: 'POST',
+      });
+    }
 
     const data = await res.json();
 
@@ -61,7 +79,6 @@ app.post('/opportunities/search', async (request, response) => {
 
   try {
     if (bodyIsPresent) {
-      console.log(bodyToSend);
       res = await fetch(`https://search.torre.co/opportunities/_search/?size=${size}&offset=${offset}`, {
         method: 'POST',
         body: bodyToSend,
