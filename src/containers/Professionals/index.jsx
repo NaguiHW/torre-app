@@ -6,7 +6,7 @@ import './style.scss';
 
 const Professionals = () => {
   const [state, setState] = useState({
-    actualPage: 1,
+    actualPage: 7810,
     size: 20,
     professionals: [],
     total: 0,
@@ -41,13 +41,13 @@ const Professionals = () => {
     console.log(state.actualPage === Math.ceil(state.total / state.size));
   }
 
-
   const clearField = e => {
     const radioButtons = e.target.parentElement.children;
 
     for (let i = 1; i < radioButtons.length - 2; i += 2) {
       radioButtons[i].checked = false;
     }
+    console.log(state);
     delete formData[radioButtons[1].name]
   };
 
