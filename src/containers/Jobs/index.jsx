@@ -187,6 +187,9 @@ const Jobs = () => {
         <button type="button" className={state.size === 60 ? 'button-selected' : 'button'} onClick={updateSize}>60</button>
         <button type="button" className={state.size === 100 ? 'button-selected' : 'button'} onClick={updateSize}>100</button>
       </div>
+      <div className="actual-page">
+        <p>Page {state.actualPage}</p>
+      </div>
       <div className="jobs-container">
         {
           state.jobs?.map(job => (
@@ -203,6 +206,9 @@ const Jobs = () => {
             />
           ))
         }
+      </div>
+      <div className="actual-page">
+        <p>Page {state.actualPage}</p>
       </div>
       <div className="pages">
         <button type="button" onClick={goTo} disabled={state.actualPage === 1}>Prev</button>
