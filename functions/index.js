@@ -13,11 +13,12 @@ app.use(cors({ origin: true }));
 app.use(express.json());
 
 // API Routes
-app.get('/', (request, response) => response.status(200).send('Hello World'));
-
 app.post('/people/search', async (request, response) => {
   const size = request.query.size;
   const offset = request.query.offset;
+  const bodyIsPresent = JSON.stringify(request.body) === JSON.stringify({});
+
+  console.log(bodyIsPresent);
 
   try {
     const res = await fetch(`https://search.torre.co/people/_search/?size=${size}&offset=${offset}`, {
@@ -98,6 +99,7 @@ app.get('/bios/:username', async (request, response) => {
     });
   }
 });
+
 
 // Listen Command
 exports.api = functions.https.onRequest(app);
