@@ -73,6 +73,14 @@ const Jobs = () => {
     }
   };
 
+  const clearField = e => {
+    const radioButtons = e.target.parentElement.children;
+
+    for (let i = 1; i < radioButtons.length - 2; i += 2) {
+      radioButtons[i].checked = false;
+    }
+  }
+
   useEffect(() => {
     const req = async () => {
       const { actualPage, size } = state;
@@ -129,7 +137,7 @@ const Jobs = () => {
             <p className="radio-area-title">Remote</p>
             <input type="radio" name="remote" id="yes" value="1" /><label htmlFor="yes">Yes</label>
             <input type="radio" name="remote" id="no" value="0" /><label htmlFor="no">No</label>
-            <button type="button" className="clear">Clear Field</button>
+            <button type="button" className="clear" onClick={clearField}>Clear Field</button>
           </fieldset>
           <fieldset>
             <p className="radio-area-title">Type</p>
@@ -137,13 +145,13 @@ const Jobs = () => {
             <input type="radio" name="type" id="parttime" value="part-time-employment" /><label htmlFor="parttime">Part-time</label>
             <input type="radio" name="type" id="freelance" value="freelance-gigs" /><label htmlFor="freelance">Freelance</label>
             <input type="radio" name="type" id="internships" value="internships" /><label htmlFor="internships">Internships</label>
-            <button type="button" className="clear">Clear Field</button>
+            <button type="button" className="clear" onClick={clearField}>Clear Field</button>
           </fieldset>
           <fieldset>
             <p className="radio-area-title">Status</p>
             <input type="radio" name="status" id="open" value="open" /><label htmlFor="open">Open</label>
             <input type="radio" name="status" id="closed" value="closed" /><label htmlFor="closed">Closed</label>
-            <button type="button" className="clear">Clear Field</button>
+            <button type="button" className="clear" onClick={clearField}>Clear Field</button>
           </fieldset>
         </div>
       </div>
