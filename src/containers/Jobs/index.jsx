@@ -11,6 +11,7 @@ const Jobs = () => {
     jobs: [],
     total: 0,
   });
+
   const [formData, setFormData] = useState({});
   const [show, setShow] = useState({
     searchArea: "none",
@@ -92,7 +93,6 @@ const Jobs = () => {
       radioButtons[i].checked = false;
     }
     delete formData[radioButtons[1].name]
-    console.log(formData)
   }
 
   const handleChange = e => {
@@ -112,6 +112,13 @@ const Jobs = () => {
         [element.name]: element.value,
       });
     }
+  }
+
+  const clearText = e => {
+    const textField = e.target.parentElement.children[2];
+    textField.value = '';
+
+    delete formData[textField.name];
   }
 
   useEffect(() => {
@@ -155,7 +162,7 @@ const Jobs = () => {
         <form className="primary">
           <label htmlFor="skill">Search by skill/role</label><br />
           <input type="text" name="skill/role" id="skill" placeholder="Ex: javascript, marketing..." onChange={handleChange} />
-          <button type="button" className="clear">Clear</button>
+          <button type="button" className="clear" onClick={clearText}>Clear</button>
         </form>
         <button type="button" style={{ display: `${show.button}` }} >Search</button>
         <p className="more-options" onClick={toggleAdvanceSearch}>More Options +</p>
@@ -163,7 +170,7 @@ const Jobs = () => {
           <form className="secondary">
             <label htmlFor="organization">Search by organization</label><br />
             <input type="text" name="organization" id="organization" placeholder="Ex: Torre" onChange={handleChange} />
-            <button type="button" className="clear">Clear</button>
+            <button type="button" className="clear" onClick={clearText}>Clear</button>
           </form>
           <fieldset onChange={handleChange}>
             <p className="radio-area-title">Remote</p>
